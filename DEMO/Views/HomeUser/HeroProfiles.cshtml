@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "HeroProfiles";
+}
+
+@model DEMO.Models.Hero
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+    <a href="/HomeUser/UploadAcheivement?HeroId=@Model.Id" > Upload Acheivement </a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div>
+    <h4>Hero</h4>
+    <hr />
+    <dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+    </dl>
+        </div>
+    </div>
+
+    <div class="row">
+        
+            @foreach(var item in Model.Acheivements)
+            {
+      <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">@item.AcheivementDetail</h2>
+                </div>
+            <div class="card-body">
+                <img src=@Url.Content(item.PhotoURL) class="card-img" />
+            </div>
+        </div>
+      </div>
+            }
+    
+    </div>
+</div>
+
